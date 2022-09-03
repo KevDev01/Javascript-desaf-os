@@ -1,20 +1,28 @@
-let pais = prompt("Ingresa tu país").toLowerCase();
+/* Definir las variables */
 
-while(pais != "ESC" ){
-    switch (pais){
-        case "mexico":
-            alert("Bienvenido")
-            break;
-        case "united states":
-            alert("Welcome")
-            break;
-        case "canada":
-            alert("Welcome")
-            break;
-        default:
-            alert("Solo funciona con paises en norteamerica / Only countries in North America")
-    }
-    pais = prompt("Ingresa tu país / Introduce your country")
+var producto = prompt("Elija su producto - Tarjetas, Volantes o Tabloide");
+var cantidad = parseFloat(prompt("Ingrese la cantidad"));
+
+/* Crear la función */
+
+function mostrarTotal(){
+    return precio * cantidad * 1.16;
 }
 
-alert("Gracias")
+/* Agregar las condiciones */
+
+if(producto === "Tarjetas"){
+    var precio = 450;
+    var resultado = mostrarTotal(precio, cantidad);
+    alert("Total: $" + resultado);   
+}else if(producto === "Volantes"){
+    var precio = 850;
+    var resultado = mostrarTotal(precio, cantidad);
+    alert("Total: $" + resultado); 
+}else if(producto === "Tabloide"){
+    var precio = 24;
+    var resultado = mostrarTotal(precio, cantidad);
+    alert("Total: $"+ resultado); 
+}else{
+    alert("No existe el producto")
+}
