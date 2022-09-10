@@ -1,28 +1,29 @@
-/* Definir las variables */
 
-var producto = prompt("Elija su producto - Tarjetas, Volantes o Tabloide");
-var cantidad = parseFloat(prompt("Ingrese la cantidad"));
+class Producto{
+    constructor(nombre, precio){
+        this.nombre = nombre;
+        this.precio = parseFloat(precio);
+    }
+} 
 
-/* Crear la función */
+var productos = [
+    new Producto(`Tarjetas de presentación`, 450),
+    new Producto(`Volantes`, 850),
+    new Producto(`Tabloide`, 24),
+    new Producto(`Display`, 500),
+]
 
-function mostrarTotal(){
-    return precio * cantidad * 1.16;
-}
+var productoUsuario = prompt("Elija su producto - Tarjetas, Volantes o Tabloide");
+var cantidadUsuario = parseFloat(prompt("Ingrese la cantidad"));
 
-/* Agregar las condiciones */
-
-if(producto === "Tarjetas"){
-    var precio = 450;
-    var resultado = mostrarTotal(precio, cantidad);
-    alert("Total: $" + resultado);   
-}else if(producto === "Volantes"){
-    var precio = 850;
-    var resultado = mostrarTotal(precio, cantidad);
-    alert("Total: $" + resultado); 
-}else if(producto === "Tabloide"){
-    var precio = 24;
-    var resultado = mostrarTotal(precio, cantidad);
-    alert("Total: $"+ resultado); 
-}else{
-    alert("No existe el producto")
-}
+for (let i = 0; i < productos.length; i++)
+ {
+    var item = productos[i];
+    
+    if (productoUsuario === item.nombre)
+        {var total = item.precio * cantidadUsuario * 1.16;
+        alert ("El Total Con IVA Es: $" + total);
+        }else{
+            alert ("No Existe")
+        }
+ }
