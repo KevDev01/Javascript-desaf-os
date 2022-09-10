@@ -1,29 +1,42 @@
 
 class Producto{
-    constructor(nombre, precio){
+    constructor(nombre, precio, cantidad){
         this.nombre = nombre;
         this.precio = parseFloat(precio);
+        this.cantidad = cantidad;
+    }
+
+    totalIva() {
+        return (this.precio * 1.16) * this.cantidad;
+    }
+
+}
+
+var arrayProductos = [];
+do{
+    var comprobacion = prompt("Ingresa un nombre de producto o esc para terminar");
+    if (comprobacion === "esc"|| comprobacion === "ESC"|| comprobacion === "Esc" ){
+        break;
+    }else{
+        nombreP = comprobacion;
+    var precioP = prompt("Ingrese el precio del producto");
+    var cantidadP = prompt("Ingrese la cantidad deseada");
+    arrayProductos.push(new Producto(nombreP, precioP, cantidadP));
     }
 } 
+while (comprobacion != "esc"|| comprobacion != "ESC"|| comprobacion != "Esc" )
 
-var productos = [
-    new Producto(`Tarjetas de presentación`, 450),
-    new Producto(`Volantes`, 850),
-    new Producto(`Tabloide`, 24),
-    new Producto(`Display`, 500),
-]
+console.log(arrayProductos)
 
-var productoUsuario = prompt("Elija su producto - Tarjetas, Volantes o Tabloide");
-var cantidadUsuario = parseFloat(prompt("Ingrese la cantidad"));
+for (var producto of arrayProductos){
+    document.write("<h3> El producto ingresado es : " + producto.nombre + "</h3>");
+    document.write("<h3> El precio sin IVA del producto ingresado es : " + producto.precio + "</h3>");
+    document.write("<h3> La cantidad deseada es : " + producto.cantidad + "</h3>");
+    document.write("<h3> El total de los productos con IVA es : " + producto.totalIva() + "</h3>");
+    document.write("----------------------------------------------------");
 
-for (let i = 0; i < productos.length; i++)
- {
-    var item = productos[i];
-    
-    if (productoUsuario === item.nombre)
-        {var total = item.precio * cantidadUsuario * 1.16;
-        alert ("El Total Con IVA Es: $" + total);
-        }else{
-            alert ("No Existe")
-        }
- }
+    console.log(producto.nombre);
+    console.log(producto.precio);
+    console.log(producto.cantidad);
+    console.log(producto.totalIva);
+}
