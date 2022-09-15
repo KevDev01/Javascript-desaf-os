@@ -18,9 +18,9 @@ do{
     if (comprobacion === "esc"|| comprobacion === "ESC"|| comprobacion === "Esc" ){
         break;
     }else{
-        nombreP = comprobacion;
-    var precioP = prompt("Ingrese el precio del producto");
-    var cantidadP = prompt("Ingrese la cantidad deseada");
+    var nombreP = comprobacion;
+    var precioP = parseInt(prompt("Ingrese el precio del producto (Solo números)"));
+    var cantidadP = parseInt(prompt("Ingrese la cantidad deseada (Solo números)"));
     arrayProductos.push(new Producto(nombreP, precioP, cantidadP));
     }
 } 
@@ -30,9 +30,9 @@ console.log(arrayProductos)
 
 for (var producto of arrayProductos){
     document.write("<h3> El producto ingresado es : " + producto.nombre + "</h3>");
-    document.write("<h3> El precio sin IVA del producto ingresado es : " + producto.precio + "</h3>");
+    document.write("<h3> El precio sin IVA del producto ingresado es : $" + producto.precio + "</h3>");
     document.write("<h3> La cantidad deseada es : " + producto.cantidad + "</h3>");
-    document.write("<h3> El total de los productos con IVA es : " + producto.totalIva() + "</h3>");
+    document.write("<h3> El total de los productos con IVA es : $" + producto.totalIva() + "</h3>");
     document.write("----------------------------------------------------");
 
     console.log(producto.nombre);
