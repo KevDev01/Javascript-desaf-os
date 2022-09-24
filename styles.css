@@ -1,3 +1,44 @@
+.tabsCont{
+    width: 90%;
+    max-width: 120em;
+    padding:1em;
+}
+.tabsCont .ul{
+    width:100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    list-style:none;
+}
+.tabsCont .li{
+    padding: 1em;
+    margin:0 2em 0 0;
+    transition: all .5s ease;
+    cursor: pointer;
+}
+.tabsCont .li.activo{
+    background-color: lightskyblue;
+    color:white;
+    list-style:none;
+}
+.tabsCont .tabsSubcont{
+    min-height: 10vh;
+    position: relative;
+}
+.tabsCont .bloque{
+    margin:1em;
+    padding: 1em;
+    position: absolute;
+    top:2em;
+    opacity: 0;
+    transition: all .5s ease;
+}
+.tabsCont .bloque.activo{
+    opacity: 1;
+}
+/* Hasta aquí */
+
 
 
 .inputNombre, .inputPrecio {
