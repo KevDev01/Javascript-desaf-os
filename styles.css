@@ -1,3 +1,4 @@
+/* Estilo tabs HTML */
 .tabsCont{
     width: 90%;
     max-width: 120em;
@@ -36,11 +37,10 @@
 }
 .tabsCont .bloque.activo{
     opacity: 1;
+    margin-top: 6rem;
 }
-/* Hasta aquí */
 
-
-
+/* Estilos de botones, inputs y textos */
 .inputNombre, .inputPrecio {
     margin: .2rem;
     border-color: rgb(14, 97, 35);
@@ -83,4 +83,13 @@ h1, h2, h3, h4{
 #btnCotizar{
     display: block;
     margin: auto;
+}
+
+.productos{
+    font-family: 'Raleway', sans-serif;
+    font-size: medium;
+    font-weight: bold;
+}
+.tabla{
+    margin-bottom: 2rem;
 }

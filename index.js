@@ -1,3 +1,4 @@
+/* Estilo para tener 2 tabs en el HTML */
 const li = document.querySelectorAll('.li')
 const bloque = document.querySelectorAll('.bloque')
 

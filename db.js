@@ -1,3 +1,4 @@
+/* Script Base de Datos */
 class Producto {
     constructor(nombre, precio) {
         this.nombre = nombre;
@@ -6,27 +7,29 @@ class Producto {
 }
 
 const arrayProductos = [];
-localStorage.setItem('arrayProductos', JSON.stringify(arrayProductos));
-
 let formulario = document.getElementById("formulario");
 let resultado = document.getElementById("resultado");
 
-
+/* Push al Array de la base de datos */
 formulario.addEventListener("submit", (e) => {
     e.preventDefault();
     resultado.innerHTML = "";
+    let arrayProductos = JSON.parse(localStorage.getItem("arrayProductos")) || [];
     let inputs = e.target.children;
     arrayProductos.push(new Producto(inputs[0].value, inputs[1].value)); 
-
+    
     for (const producto of arrayProductos) {
+        let arrayProductos = JSON.parse(localStorage.getItem("arrayProductos"));
         const div = document.createElement("div");
         div.innerHTML = `
-    <h3> Nombre del producto: ${producto.nombre}</h3> 
+    <p class="productos"> Nombre del producto: ${producto.nombre}</p> 
     <p> Precio: $${producto.precio}</p> 
     `;
         resultado.append(div);
 
     }
+
+    localStorage.setItem('arrayProductos', JSON.stringify(arrayProductos));
 
     inputs[0].value = "";
     inputs[1].value = "";

@@ -16,12 +16,13 @@
 </head>
 
 <body>
+    <!-- Tabs -->
     <div class="tabsCont">
         <ul class="ul">
             <li class="li activo"> Base de datos </li>
             <li class="li" onclick="actualizar()"> Cotizador </li>
         </ul>
-
+        <!-- Tab Base De Datos -->
         <div class="tabsSubcont">
             <div class="bloque activo">
                 <h1>Simulador interactivo</h1>
@@ -34,14 +35,17 @@
                     <input type="submit" id="btnAgregarProducto" value="Agregar" class="btn btn-primary"></input>
                     </form>
                     <div id="resultado" class="resultado"></div>
+                    
                 </div>
             </div>
+            <!-- Tab Cotizador -->
             <div class="bloque">
                 <div id="stock"></div>
+                <h2>Resumen</h2>
                 <div id="tabla"></div>
-                <p>Precio total: $<span id="precioTotal">0</span></p>
-                <button id="vaciar-carrito">Vaciar Cotizador</button>
-                <button id="btnCotizar">Cotizar</button>
+                <h3>Precio total con IVA: $<span id="precioTotal">0</span></h3>
+                <button id="vaciar-carrito" class="btn btn-danger">Vaciar Cotizador</button>
+                <!-- <button id="btnCotizar" class="btn btn-success">Cotizar</button> -->
             </div>
         </div>
     </div>
