@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/KevDev01/Javascript-desaf-os#readme",
   "dependencies": {
-    "bootstrap": "^5.2.1"
+    "bootstrap": "^5.2.1",
+    "toastify-js": "^1.12.0"
   }
 }

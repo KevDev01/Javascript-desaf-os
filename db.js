@@ -28,6 +28,13 @@ formulario.addEventListener("submit", (e) => {
         resultado.append(div);
 
     }
+    Toastify({
+        text: "Producto añadido a la base de datos",
+        duration:4000,
+        style: {
+            background: "rgb(14, 97, 35)"
+        }
+    }).showToast();
 
     localStorage.setItem('arrayProductos', JSON.stringify(arrayProductos));
 
