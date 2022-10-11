@@ -19,13 +19,13 @@
 <body>
     <!-- Tabs -->
     <div class="tabsCont">
-        <ul class="ul">
-            <li class="li activo"> Base de datos </li>
-            <li class="li" onclick="actualizar()"> Cotizador </li>
+        <ul class="pestañas">
+            <li id="pestaña1" class="pestaña pestaña-activa"> Base de datos </li>
+            <li id="pestaña2" class="pestaña" onclick="actualizar()"> Cotizador </li>
         </ul>
         <!-- Tab Base De Datos -->
         <div class="tabsSubcont">
-            <div class="bloque activo">
+            <div id="bloque1" class="bloque bloque-activo">
                 <h1>Simulador interactivo</h1>
                 <h2>Añade los productos</h2>
                 <p id="Añade tus productos"></p>
@@ -40,7 +40,7 @@
                 </div>
             </div>
             <!-- Tab Cotizador -->
-            <div class="bloque">
+            <div id="bloque2" class="bloque">
                 <div id="stock"></div>
                 <h2>Resumen</h2>
                 <div id="tabla"></div>

@@ -53,6 +53,9 @@ function actualizar() {
         }
     })
 }
+
+
+
 /* Eliminar producto 1 a 1 */
 const eliminarProducto = (prodNombre) => {
     const item = cotizacion.find((prod) => prod.nombre === prodNombre);

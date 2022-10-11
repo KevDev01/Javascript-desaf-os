@@ -10,14 +10,36 @@ const arrayProductos = [];
 let formulario = document.getElementById("formulario");
 let resultado = document.getElementById("resultado");
 
+/* function cargarProductos(){
+    if (localStorage.getItem("arrayProductos") === null) 
+    return;
+
+} */
+
+window.addEventListener("load", (e) =>{
+    e.preventDefault();
+    resultado.innerHTML = "";
+    let arrayProductos = JSON.parse(localStorage.getItem("arrayProductos")) || [];
+    for (const producto of arrayProductos) {
+        let arrayProductos = JSON.parse(localStorage.getItem("arrayProductos"));
+        const div = document.createElement("div");
+        div.innerHTML = `
+    <p class="productos"> Nombre del producto: ${producto.nombre}</p> 
+    <p> Precio: $${producto.precio}</p> 
+    `;
+        resultado.append(div);
+    }
+})
+
 /* Push al Array de la base de datos */
 formulario.addEventListener("submit", (e) => {
     e.preventDefault();
     resultado.innerHTML = "";
     let arrayProductos = JSON.parse(localStorage.getItem("arrayProductos")) || [];
     let inputs = e.target.children;
-    arrayProductos.push(new Producto(inputs[0].value, inputs[1].value)); 
     
+    arrayProductos.push(new Producto(inputs[0].value, inputs[1].value)); 
+
     for (const producto of arrayProductos) {
         let arrayProductos = JSON.parse(localStorage.getItem("arrayProductos"));
         const div = document.createElement("div");
@@ -35,6 +57,7 @@ formulario.addEventListener("submit", (e) => {
             background: "rgb(14, 97, 35)"
         }
     }).showToast();
+
 
     localStorage.setItem('arrayProductos', JSON.stringify(arrayProductos));
 
