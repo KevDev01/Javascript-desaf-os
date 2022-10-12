@@ -13,6 +13,8 @@ const botonVaciar = document.getElementById('vaciar-carrito');
 const botonCotizar = document.getElementById('btnCotizar');
 const precioTotal = document.getElementById('precioTotal');
 let cotizacion = [];
+/* let cotSinDuplicados = []; */
+
 
 /* Vaciar cotizador */
 botonVaciar.addEventListener('click', () => {
@@ -42,6 +44,8 @@ function actualizar() {
         const botonAgregarCot = document.getElementById(`agregar${producto.nombre}`);
         botonAgregarCot.addEventListener('click', () => {
             agregarACotizacion(producto.nombre);
+            document.getElementById(`cantidad${producto.nombre}`).value = "";
+
         })
         /* Agregar cantidad a los productos */
         const agregarACotizacion = (prodNombre) => {
@@ -52,9 +56,9 @@ function actualizar() {
             console.log(cotizacion);
         }
     })
+
+
 }
-
-
 
 /* Eliminar producto 1 a 1 */
 const eliminarProducto = (prodNombre) => {
@@ -67,7 +71,6 @@ const eliminarProducto = (prodNombre) => {
 /* Imprimir el resumen del cotizador */
 const actualizarTabla = () => {
     tabla.innerHTML = "";
-
     cotizacion.forEach((prod) => {
         const div = document.createElement('div');
         div.className = ('tabla');
@@ -78,8 +81,28 @@ const actualizarTabla = () => {
         <button onclick="eliminarProducto()" class="btn btn-danger">Eliminar</button>
         `
         tabla.appendChild(div);
-        
+
     })
+
+    /* Cotizar en USD usando API */
+    function calculate(){
+        const moneda = 'USD';
+
+       fetch(`https://api.exchangerate-api.com/v4/latest/MXN`)
+       
+       .then(res => res.json() )
+       .then(data => {
+           const tasa = data.rates[moneda];
+           console.log(tasa);
+           precioUSD.innerText = (precioFinal * tasa) ;
+    
+        } );
+        
+    }
+
     precioTotal.innerText = cotizacion.reduce((acc, prod) => acc + (prod.precio * prod.cantidad) * 1.16, 0);
+    const precioFinal = cotizacion.reduce((acc, prod) => acc + (prod.precio * prod.cantidad) * 1.16, 0);
+    console.log(precioFinal);
+    calculate();
 }
 

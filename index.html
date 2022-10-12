@@ -13,6 +13,10 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="html2pdf.bundle.min.js"></script>
     <title>Cotizador</title>
 </head>
 
@@ -31,22 +35,26 @@
                 <p id="Añade tus productos"></p>
                 <div class="añadeProd">
                     <form id="formulario">
-                    <input type="text" id="nombre" class="inputNombre" placeholder="Ingresa el nombre del producto">
-                    <input type="number" id="precio" class="inputPrecio" placeholder="Ingrese el precio del producto">
-                    <input type="submit" id="btnAgregarProducto" value="Agregar" class="btn btn-primary"></input>
+                        <input type="text" id="nombre" class="inputNombre" placeholder="Ingresa el nombre del producto">
+                        <input type="number" id="precio" class="inputPrecio"
+                            placeholder="Ingrese el precio del producto">
+                        <input type="submit" id="btnAgregarProducto" value="Agregar" class="btn btn-primary"></input>
                     </form>
                     <div id="resultado" class="resultado"></div>
-                    
+
                 </div>
             </div>
             <!-- Tab Cotizador -->
             <div id="bloque2" class="bloque">
                 <div id="stock"></div>
                 <h2>Resumen</h2>
-                <div id="tabla"></div>
-                <h3>Precio total con IVA: $<span id="precioTotal">0</span></h3>
+                <div id="exportarPDF">
+                    <div id="tabla"></div>
+                    <h3>Precio total con IVA: $<span id="precioTotal">0</span></h3>
+                    <h3>Precio en dolares: $<span id="precioUSD">0</span> </h3>
+                </div>
                 <button id="vaciar-carrito" class="btn btn-danger">Vaciar Cotizador</button>
-                <!-- <button id="btnCotizar" class="btn btn-success">Cotizar</button> -->
+                <button id="btnCotizar" class="btn btn-success">Exportar cotización (PDF) </button>
             </div>
         </div>
     </div>
@@ -58,6 +66,7 @@
     <script src="./index.js"></script>
     <script src="./db.js"></script>
     <script src="./cotizador.js"></script>
+    <script src="./exportar.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
 </body>
